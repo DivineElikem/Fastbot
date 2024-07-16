@@ -21,21 +21,3 @@ async def call_chatmodel(user_message: str, chat_history: List[AnyMessage] = [])
     messages.append(AIMessage(content=response.content))
     return {"response": response.content, "messages": messages}
 
-
-
-# from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
-# import os
-# from typing import List, Dict
-
-# os.environ["HUGGINGFACE_API_TOKEN"] = "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"
-
-# llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-7B-Instruct-v0.3", max_new_tokens=2000)
-# chatmodel = ChatHuggingFace(llm=llm)
-
-# async def call_chatmodel(user_message: str, chat_history: List[Dict[str, str]]):
-#     messages = [{"role": "system", "content": "You are a helpful assistant."}]
-#     messages += chat_history
-#     messages.append({"role": "user", "content": user_message})
-    
-#     response = chatmodel.invoke(messages)
-#     return {"response": response.content, "messages": messages}
